@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@langchain/google-genai": "^0.1.0",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
+    "langchain": "^0.3.2",
     "mongoose": "^8.6.3"
   }
 }
