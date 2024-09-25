@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const axios = require('axios');
 require('dotenv').config();
-
+const generateResponse  = require('./geminiLangchain.mjs');
 const Document = require('./DocumentModel');
 
 const hf_token = process.env.HF_TOKEN;
@@ -101,11 +101,13 @@ mongoose
   .then(async () => {
     console.log('MongoDB connected.');
 
-    // Insert a sample document with embedding
-    await insertDocument();
-
-    // Retrieve similar documents using vector search
-    const similarDocs = await retrieveDocumentsByVector('This is a sample document for RAG implementation.');
-    console.log('Similar documents:', similarDocs);
+    await retrieveDocumentsByVector('This is a sample document for RAG implementation.')
+    .then(
+      response => console.log(content)
+    )
+    // generateResponse(similarDocs)
+    // .then(response => console.log("Generated Response:", response.content))
+    // .catch(error => console.error(error));
+    // console.log('Similar documents:', similarDocs);
   })
   .catch((err) => console.error('MongoDB connection error:', err));
