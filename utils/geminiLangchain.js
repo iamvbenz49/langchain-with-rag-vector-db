@@ -26,7 +26,7 @@ export default async function generateResponse(query) {
     });
     
     // Augment the query with the retrieved data
-    const augmentedQuery = "hello bro";
+    const augmentedQuery = query;
     // Generate the response using the model
     const responses = await model.invoke([
       [
@@ -34,8 +34,8 @@ export default async function generateResponse(query) {
         augmentedQuery
       ],
     ]);
-
-    return responses;
+    console.log(responses)
+    return responses.content;
   } catch (error) {
     console.error("Error during data retrieval or generation:", error);
     return "An error occurred while generating the response.";

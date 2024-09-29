@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const hf_token = "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";
 const embedding_url = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2";
-const Document = require("./DocumentModel")
+const Document = require("../models/DocumentModel")
 
 async function generateEmbedding(text) {
   try {
